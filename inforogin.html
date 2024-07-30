@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOTHERAPY</title>
+    <link rel="stylesheet" href="infostyles.css">
+    <style>
+        #aside {
+            float: right;
+        }
+        #aside {
+            float: right;
+                
+        }
+        .movement{ 
+            margin-top: 10px;
+        }
+        .hide-link{
+            color: inherit;
+            text-decoration: none;
+        }
+        /* 기본 배경 css */
+        .login-wrapper{
+            width: 400px;
+            height: 350px;
+            padding: 40px;
+            box-sizing: border-box;
+            background-color: #f5f5f5;
+            border: 1px solid #b0c4de;
+            padding: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            font-family: arial;
+            font-size: 24px;
+            margin: 20px;
+            margin-left: 600px;
+            display: flex;
+            justify-content: center;    
+        }
+        .login-wrapper > h2{
+            font-size: 24px;
+            color: aqua;
+            margin-bottom: 20px;
+        }
+        #login-form > input{
+            width: 100%;
+            height: 40px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            margin-bottom: 16px;
+            border-radius: 6px;
+            background-color: #f8f8f8;
+        }
+        #login-form > input::placeholder{
+            color: #D2D2D2;
+        }
+        #login-form > input[type="submit"]{
+            color: #fff;
+            font-size: 16px;
+            background-color: aqua;
+            margin-top: 20px;
+        }
+    </style>
+<body>
+    <div id="hhead">
+        <h1><strong><a href="index.html" target="_blank" class="hide-link">INFOTHERAPY</a></strong><img src="infologo.jpg" alt="돌고래" width="50" height="50" />
+            <nav id="aside">
+            <nav id="aside">
+                <a href ="infodongari.html" target="_blank" class="hide-link head-a">동아리활동</a> 
+                    <a href ="inforobot.html" target="_blank" class="hide-link head-a">로봇소개</a> 
+                    <a href ="inforeser.html" target="_blank" class="hide-link">동아리실예약</a>
+                    <a href="inforogin.html">로그인</a>
+            </nav>
+        </h1>
+    </div>
+    <article class="contanier">
+        <div class="login-wrapper">
+        <h2>login</h2>
+            <form method="post" action="serverid" id="login-form">
+            <input type="text" name="username" placeholder="Email">
+            <input type="password" name="Userpassword" placeholder="Password">
+            <input type="submit" value="Login">
+        </form>
+    </div>
+    </article>
+</body>

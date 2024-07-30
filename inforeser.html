@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INFOTHERAPY</title>
+    <link rel="stylesheet" href="infostyles.css">
+    <style>
+        h2 {
+            border-top: 1px solid black;
+        }
+
+        #aside {
+            float: right;
+        }
+        #aside {
+            float: right;
+                
+        }
+        .movement{ 
+            margin-top: 10px;
+        }
+        .hide-link{
+            color: inherit;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="hhead">
+        <h1><strong><a href="index.html" target="_blank" class="hide-link">INFOTHERAPY</a></strong><img src="infologo.jpg" alt="돌고래" width="50" height="50" />
+            <nav id="aside">
+            <nav id="aside">
+                <a href ="infodongari.html" target="_blank" class="hide-link head-a">동아리활동</a> 
+                    <a href ="inforobot.html" target="_blank" class="hide-link head-a">로봇소개</a> 
+                    <a href ="inforeser.html" target="_blank" class="hide-link">동아리실예약</a>
+                    <a href="inforogin.html">로그인</a>
+            </nav>
+        </h1>
+    </div>
+<head>
+    <meta charset="UTF-8">
+    <title>동아리실 예약</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 20px;
+        }
+        #reservationForm {
+            margin-bottom: 20px;
+        }
+        .message {
+            color: red;
+        }
+        #reservationList {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<h2>동아리실 예약</h2>
+
+<div id="reservationForm">
+    <label for="name">예약자명:</label>
+    <input type="text" id="name" required>
+    <br><br>
+
+    <label for="room">동아리실 선택:</label>
+    <select id="room">
+        <option value="room1">2층 SW나래실</option>
+        <option value="room2">3층 컴퓨터실</option>
+    </select>
+    <br><br>
+    
+    <label for="date">예약 날짜:</label>
+    <input type="date" id="date" required>
+    <br><br>
+    
+    <label for="startTime">시작 시간:</label>
+    <input type="time" id="startTime" min="09:00" max="21:00" required>
+    <br><br>
+    
+    <label for="endTime">종료 시간:</label>
+    <input type="time" id="endTime" min="09:00" max="21:00" required>
+    <br><br>
+
+    <label for="reason">사용 사유:</label>
+    <input type="text" id="reason" required>
+    <br><br>
+    
+    <button onclick="reserveRoom()">예약</button>
+</div>
+
+<div class="message" id="message"></div>
+
+<h3>예약 내역</h3>
+<div id="reservationList"></div>
+
+<script>
+    const reservations = [];
+
+    function reserveRoom() {
+        const name = document.getElementById('name').value;
+        const room = document.getElementById('room').value;
+        const date = document.getElementById('date').value;
+        const startTime = document.getElementById('startTime').value;
+        const endTime = document.getElementById('endTime').value;
+
+        if (!name || !date || !startTime || !endTime) {
+            document.getElementById('message').innerText = "모든 파트를 입력해야 합니다.";
+            return;
+        }
+
+        if (startTime >= endTime) {
+            document.getElementById('message').innerText = "종료 시간은 시작 시간보다 늦어야 합니다.";
+            return;
+        }
+
+        const reservation = { name, room, date, startTime, endTime };
+        reservations.push(reservation);
+        displayReservations();
+        document.getElementById('message').innerText = `${name}님의 예약이 완료되었습니다!`;
+    }
+
+    function displayReservations() {
+        const reservationList = document.getElementById('reservationList');
+        reservationList.innerHTML = ""; // 기존 예약 목록 초기화
+
+        reservations.forEach(reservation => {
+            const reservationItem = document.createElement('div');
+            reservationItem.innerText = `${reservation.name} - ${reservation.room} 예약: ${reservation.date} ${reservation.startTime} ~ ${reservation.endTime}`;
+            reservationList.appendChild(reservationItem);
+        });
+    }
+</script>
+
+</body>
+</html>
