@@ -6,8 +6,7 @@ body {
     background-color: #b0c4de;
     display: flex;
     flex-direction: column;
-    align-items: center;
-  gap: 30px;
+    gap: 30px;
 }
 
 #hhead {
@@ -15,7 +14,6 @@ body {
     color: #b0c4de;
     padding: 20px;
     text-align: center;
-    gap: 30px;
 }
 
 #hhead h1 {
@@ -25,6 +23,11 @@ body {
     align-items: center;
 }
 
+#hhead .logo {
+    height: 40px; /* 로고 높이 설정 */
+    margin-right: 15px; /* 로고와 제목 간격 */
+}
+
 #hhead nav {
     float: right;
 }
@@ -32,7 +35,7 @@ body {
 #hhead nav a {
     color: #b0c4de;
     text-decoration: none;
-    margin-left: 10px;: 15px;
+    margin-left: 15px;
     font-size: 1.1em;
 }
 
@@ -43,12 +46,15 @@ body {
 main {
     width: 80%;
     max-width: 900px;
+    margin: 0 auto; /* 중앙 정렬 */
 }
 
 .grid-container {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
+    justify-items: center; /* 수평 중앙 정렬 */
+    align-items: center; /* 수직 중앙 정렬 */
 }
 
 .grid-item {
@@ -58,10 +64,14 @@ main {
     padding: 15px;
     text-align: center;
     transition: transform 0.3s;
+    display: flex; /* 내부 콘텐츠 정렬을 위해 flex 사용 */
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .grid-item:hover {
-    transform: scale(1.05);
+    transform: scale(1.05)
 }
 
 .grid-item img {
@@ -75,22 +85,21 @@ main {
     margin: 15px 0;
 }
 
-.grid-item p {
-    color: #;
-}
-
 footer {
-    background-color:    #f5f5f5;
+    background-color: #f5f5f5;
     color: #b0c4de;
     text-align: center;
     padding: 10px 0;
     position: relative;
     width: 100%;
     bottom: 0;
-    transform: translateY(0%);
-    
 }
-#wrapper{
+
+#wrapper {
     height: auto;
     min-height: 200px;
+}
+
+.space {
+    margin-bottom: 100px;
 }
