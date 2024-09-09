@@ -37,42 +37,85 @@
             </nav>
         </h1>
     </div>
-
-    <section id="gallery">
-        <h1 style="text-align:center; margin-top: 30px;">NOTICE BOARD</h1>
+              
+    <div id="gallery">
+        <h2>게시판</h2>
+        <form id="uploadForm">
+            <label for="imageUpload">업로드:</label>
+            <input type="file" id="imageUpload" name="image" accept="image/*" required>
+            <br><br>
+            <label for="postTitle">작성자:</label>
+            <input type="text" id="postTitle" name="title" required>
+            <br><br>
+            <label for="postDescription">설명:</label>
+            <textarea id="postDescription" name="description" rows="4" required></textarea>
+            <br><br>
+            <button type="submit">업로드</button>
+        </form>
+        
         <div class="gallery">
-            <div class="club">
-                <a href="https://ibb.co/GPkwP31">
-                    <img src="https://i.ibb.co/XJpBJkd/Kakao-Talk-20240703-105550437-27.jpg" alt="Kakao-Talk-20240703-105550437-27">
-                </a>
+					
+            <!-- 예시: -->
+            <!-- <div class="club">
+                <img src="example.jpg" alt="Example Image">
                 <div class="club-info">
-                    <h3>아마존웹서비스(AWS) 기업탐방</h3>
-                    <p>2024년 6월 30일 인포테라피 1학년과 2학년은 아마존웹서비스(AWS) 본사 탐방을 진행하였다.
-                  </p>
+                    <h3>게시글 제목</h3>
+                    <p>게시글 설명</p>
                 </div>
-            </div>
-            <div class="club">
-                <img src="club2.jpg" alt="(EXAMPLE2)">
-                <div class="club-info">
-                    <h3>(EXAMPLE2)</h3>
-                    <p>(EXAMPLE2)</p>
-                </div>
-            </div>
-            <div class="club">
-                <img src="club3.jpg" alt="프로젝트 3 이미지">
-                <div class="club-info">
-                    <h3>(EXAMPLE3)</h3>
-                    <p>(EXAMPLE3)</p>
-                </div>
-            </div>
-            <!-- 추가적인 갤러리 아이템들은 여기에 추가합니다. -->
+            </div> -->
         </div>
-    </section>
+    </div>
+
     <footer>
         <p>  
         © 2024 천안월봉고등학교 인포테라피
         </p>
     </footer>
-    <script src="gallery.js"></script>
+
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            
+            // 이미지와 텍스트 가져오기
+            const imageFile = document.getElementById('imageUpload').files[0];
+            const title = document.getElementById('postTitle').value;
+            const description = document.getElementById('postDescription').value;
+
+            if (imageFile && title && description) {
+                // 이미지를 미리보기로 표시
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const gallery = document.querySelector('.gallery');
+                    const club = document.createElement('div');
+                    club.classList.add('club');
+
+                    const img = document.createElement('img');
+                    img.src = e.target.result;
+                    img.alt = title;
+
+                    const clubInfo = document.createElement('div');
+                    clubInfo.classList.add('club-info');
+
+                    const h3 = document.createElement('h3');
+                    h3.textContent = title;
+
+                    const p = document.createElement('p');
+                    p.textContent = description;
+
+                    clubInfo.appendChild(h3);
+                    clubInfo.appendChild(p);
+
+                    club.appendChild(img);
+                    club.appendChild(clubInfo);
+
+                    gallery.appendChild(club);
+
+                    // 폼 초기화
+                    document.getElementById('uploadForm').reset();
+                };
+                reader.readAsDataURL(imageFile);
+            }
+        });
+    </script>
 </body>
 </html>
