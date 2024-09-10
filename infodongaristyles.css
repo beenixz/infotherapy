@@ -1,18 +1,17 @@
-/* 게시판 전용 스타일 */
+/* 갤러리 스타일 */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
-    background-color: #b0c4de; /* 원래 배경색 */
+    background-color: #b0c4de;
 }
 
 #hhead {
-    background-color: #f5f5f5; /* 원래 헤더 배경색 */
+    background-color: #f5f5f5;
     color: #b0c4de;
     padding: 20px;
     text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 #hhead h1 {
@@ -27,7 +26,7 @@ body {
 }
 
 #hhead nav a {
-    color: #b0c4de; /* 원래 네비게이션 링크 색상 */
+    color: #b0c4de;
     text-decoration: none;
     margin-left: 15px;
     font-size: 1.1em;
@@ -38,127 +37,52 @@ body {
 }
 
 #gallery {
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    padding: 20px;
 }
 
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    gap: 30px;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
 }
 
 .club {
-    background-color: #f5f5f5; /* 원래 카드 배경색 */
-    border: 1px solid #b0c4de; /* 원래 카드 테두리 색상 */
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease;
-}
-
-.club:hover {
-    transform: translateY(-10px);
+    background-color: #f5f5f5;
+    border: 1px solid #b0c4de;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .club img {
     width: 100%;
     height: auto;
-    border-radius: 10px;
 }
 
 .club-info {
-    padding: 15px 0;
+    padding: 10px 0;
     text-align: center;
 }
 
 .club-info h3 {
     margin: 10px 0 5px;
-    font-size: 1.2em;
-    color: #333333; /* 제목 글씨 색상 */
-}
-
-.club-info p {
-    font-size: 1em;
-    color: #666666; /* 설명 글씨 색상 */
-}
-
-.delete-btn {
-    background-color: #ff4d4d;
-    color: #ffffff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.delete-btn:hover {
-    background-color: #ff1a1a;
 }
 
 footer {
-    background-color: #f5f5f5; /* 원래 푸터 배경색 */
-    color: #b0c4de; /* 원래 푸터 글씨 색상 */
+    background-color:    #f5f5f5;
+    color: #b0c4de;
     text-align: center;
-    padding: 20px 0;
+    padding: 10px 0;
     position: relative;
     width: 100%;
     bottom: 0;
-    box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.1);
+    transform: translateY(0%);
+    
 }
-
-#wrapper {
+#wrapper{
     height: auto;
     min-height: 200px;
 }
-
-.space {
+.space{
     margin-bottom: 100px;
 }
-
-/* 업로드 폼 스타일 */
-#uploadForm {
-    background-color: #ffffff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-    margin-bottom: 40px;
-    max-width: 600px;
-    margin: 0 auto;
-}
-
-#uploadForm label {
-    font-size: 1em;
-    color: #333333;
-    margin-bottom: 10px;
-    display: block;
-}
-
-#uploadForm input[type="text"],
-#uploadForm textarea {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
-    border: 1px solid #dcdcdc;
-    border-radius: 5px;
-}
-
-#uploadForm input[type="file"] {
-    margin-bottom: 20px;
-}
-
-#uploadForm button {
-    background-color: #4CAF50;
-    color: #ffffff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-#uploadForm button:hover {
-    background-color: #45a049;
-}
+/* 메인 스타일 */  
