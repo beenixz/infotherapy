@@ -70,7 +70,7 @@
     </div>
               
     <div id="gallery">
-        <h2></h2>
+        <h2>게시판</h2>
         <form id="uploadForm">
             <label for="imageUpload">업로드:</label>
             <input type="file" id="imageUpload" name="image" accept="image/*" required>
@@ -80,6 +80,7 @@
             <br><br>
             <label for="postDescription">설명:</label>
             <textarea id="postDescription" name="description" rows="4" required></textarea>
+            <br><br>
             <button type="submit">업로드</button>
         </form>
         
@@ -98,11 +99,11 @@
         document.getElementById('uploadForm').addEventListener('submit', function(event) {
             event.preventDefault();
             
-            // 이미지, 텍스트, 색상 가져오기
+            // 이미지와 텍스트 가져오기
             const imageFile = document.getElementById('imageUpload').files[0];
             const title = document.getElementById('postTitle').value;
             const description = document.getElementById('postDescription').value;
-           
+
             if (imageFile && title && description) {
                 // 이미지를 미리보기로 표시
                 const reader = new FileReader();
@@ -120,11 +121,9 @@
 
                     const h3 = document.createElement('h3');
                     h3.textContent = title;
-                    h3.style.color = textColor; // 제목에 색상 적용
 
                     const p = document.createElement('p');
                     p.textContent = description;
-                    p.style.color = textColor; // 설명에 색상 적용
 
                     const date = new Date().toLocaleString();
                     const dateParagraph = document.createElement('p');
